@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
 
+  before_action :authenticate_user!
+
   before_action :find_group
 
   def new
@@ -39,7 +41,7 @@ class PostsController < ApplicationController
 
   private
 
-  def find_parmas
+  def find_group
     @group = Group.find(params[:group_id])
   end
 
